@@ -17,12 +17,13 @@ struct NoteView: View {
             VStack {
                 Text("Añade una Tarea")
                     .underline()
-                    .foregroundColor(.gray)
+                    .foregroundColor(.green)
+                    .font(.title2)
                     .padding(.horizontal, 16)
                 TextEditor(text: $descriptionNote)
                     .foregroundColor(.gray)
                     .frame(height: 100)
-                    .overlay(RoundedRectangle(cornerRadius: 8).stroke(.green, lineWidth: 2))
+                    .overlay(RoundedRectangle(cornerRadius: 8).stroke(.blue, lineWidth: 2))
                     .padding(.horizontal, 12)
                     .cornerRadius(3.0)
                 Button("Crear") {
@@ -30,7 +31,7 @@ struct NoteView: View {
                     descriptionNote = ""
                 }
                 .buttonStyle(.bordered)
-                .tint(.green)
+                .tint(.orange)
                 Spacer()
                 List {
                     ForEach($notesViewModel.notes, id: \.id) { $note in
@@ -63,7 +64,7 @@ struct NoteView: View {
             .navigationTitle("TODO")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                Text(notesViewModel.getNumberOfNotes())
+                Text(notesViewModel.getNumberOfNotes()).foregroundColor(.yellow).font(.title2)
             }
         }
     }
